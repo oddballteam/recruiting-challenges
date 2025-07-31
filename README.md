@@ -4,7 +4,7 @@
 
 Congratulations on progressing to the skill assessment stage of our hiring process! We are excited to get to know you better and potentially welcome you to our team at Oddball.
 
-In this phase, we want to evaluate both your capabilities and your aptitude to communicate your decisions. The desired outcome is not a a particular solution or perfection. It is not a feature checklist to be completed; it's not a graded assignment. Instead, we hope this process will allow us to learn how you work, see your ingenuity, and (most importantly) prompt a great conversation.
+In this phase, we want to evaluate both your capabilities and your aptitude to communicate your decisions. The desired outcome is not perfection or a particular solution. It is not a feature checklist to be completed; it's not a graded assignment. Instead, we hope this process will allow us to learn how you work, see your ingenuity, and (most importantly) prompt a great conversation.
 
 ## Good Luck!
 
