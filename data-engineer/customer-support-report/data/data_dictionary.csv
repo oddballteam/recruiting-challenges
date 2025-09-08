@@ -1,0 +1,23 @@
+Table,Field,Data Type,Description,Notes
+agents,agent_id,String,Unique identifier for each agent,Primary key
+agents,full_name,String,Agent's full name,
+agents,contact_center_id,String,Foreign key to contact center where agent works,References contact_centers.contact_center_id
+agents,hire_date,Date,Date when agent was hired,ISO date format (YYYY-MM-DD)
+agents,category_id,String,Primary service category the agent specializes in,References service_categories.category_id
+contact_centers,contact_center_id,String,Unique identifier for each contact center,Primary key
+contact_centers,contact_center_name,String,Display name of the contact center,
+contact_centers,location,String,Geographic location of the contact center,
+interactions,interaction_id,String,Unique identifier for each customer interaction,Primary key
+interactions,timestamp,DateTime,When this record was generated into the delta file,UTC timezone
+interactions,channel,String,Communication channel used,
+interactions,category_id,String,Type of service requested,References service_categories.category_id
+interactions,agent_id,String,Agent who handled the interaction,References agents.agent_id
+interactions,contact_center_id,String,Contact center where interaction was handled,References contact_centers.contact_center_id
+interactions,interaction_start,DateTime,When the interaction actually started,UTC timezone
+interactions,agent_resolution_timestamp,DateTime,When the agent marked the issue as resolved,UTC timezone
+interactions,interaction_end,DateTime,When the interaction completely ended,UTC timezone
+interactions,call_duration_minutes,Decimal,Total duration of phone call in minutes,
+interactions,satisfaction_rating,Integer,Customer satisfaction rating,
+service_categories,category_id,String,Unique identifier for each service category,Primary key
+service_categories,category_name,String,Display name of the service category,
+service_categories,department,String,Department that handles this category,Organizational grouping for reporting
