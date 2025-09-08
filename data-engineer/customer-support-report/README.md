@@ -98,16 +98,30 @@ python pipeline.py
 
 ## Submission Guidelines
 
+Follow the below instructions based on the challenge format: 
+
+
+### _Real-Time Code Pairing_
+Please visit the following link: **[Next Steps](../../next-steps-real-time.md)** 
+
+<br>
+
+### _Take Home Assignment_
+
+You will work on the solution prior to the interview. During our call together, we will ask you to demo the submission with a walkthrough. We'll then step through the various aspects of your solution to discuss your implementation details, find out what hiccups you ran into, what you might do if you had more time, and other nerdy details!
+
+Please submit the project at least 4 hours before your scheduled interview. This will allow us time to preview it before the interview.
+
 1. **You may use any programming language or software** (e.g., Python, R, SQL, Excel, etc.) to complete this challenge.
 2. Your submission must include **clear, step-by-step instructions** on how to run your code and reproduce your results from raw data to final answers. If special dependencies or environments are required, please document them.
 3. Push your final code, including the data processing pipeline, report generation script, and any supporting files, to a public GitHub repository.
 4. Ensure the repository includes a clear `README.md` file.
 5. In your `README.md`, provide the direct answers to the three business questions listed above. For each answer, briefly justify how you arrived at it, referencing your generated `support_report` or final processed data where appropriate.
 
+ 
+
 ---
 
-## Preparing for the Interview
+<br>
 
-**[Next Steps...](../../next-steps-real-time.md)** - _For candidates_
-
-[Internal Notes](https://drive.google.com/drive/folders/1CpN3WScbUuBpDPKzTv13U-V4OYquszrL?usp=drive_link) - _For reviewers_
+**[Internal Notes](https://drive.google.com/drive/folders/1CpN3WScbUuBpDPKzTv13U-V4OYquszrL?usp=drive_link)** — _For reviewers_
