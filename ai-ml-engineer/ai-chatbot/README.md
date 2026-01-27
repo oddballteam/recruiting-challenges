@@ -1,4 +1,4 @@
-# AI Chatbot Code Review Exercise
+# AI Chatbot Code Review & Evaluation Exercise
 
 ## Background
 
@@ -13,6 +13,13 @@ The following Python script interacts with Amazon Bedrock's AI model. This code 
 - **Response time** requirements: < 2 seconds per interaction.
 
 ## Task
+
+1. Review and fix the buggy chatbot code below
+2. **Implement an evaluation framework** to measure chatbot response quality
+
+---
+
+## Part 1: Code Fixes
 
 Please review the following code and provide feedback on the following aspects:
 
@@ -42,8 +49,16 @@ class BedrockChatbot:
             aws_secret_access_key=AWS_SECRET_KEY
         )
 
-    def chat_with_bot(self, prompt: str) -> str:
+    def chat_with_bot(self, page_context: str, user_question: str) -> str:
         """Send a chat request to Amazon Bedrock and ensure we get a response"""
+        prompt = f"""You are a helpful assistant for a website.
+        The user is currently viewing this content:
+
+        {page_context}
+
+        User question: {user_question}
+
+        Answer based on the page content above."""
         try:
             # Make multiple attempts to get a response
             for _ in range(5):
@@ -91,6 +106,67 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+---
+
+## Part 2: Evaluation Framework
+
+Build a system to evaluate your chatbot's response quality.
+
+### Requirements
+
+**Create an eval dataset** (minimum 10 test cases) with:
+- Page context (what the user is viewing)
+- User question
+- Expected facts the response should contain
+
+**Implement these metrics:**
+
+#### Recall@k
+Proportion of required facts found in first k tokens of the response.
+
+```
+Recall@k = |found_facts ∩ required_facts| / |required_facts|
+```
+
+#### MRR (Mean Reciprocal Rank)
+How early the key answer appears in the response.
+
+```
+MRR = 1/N × Σ(1/rank_i)
+
+where rank_i is the position of the first correct fact in response i
+```
+
+#### Freshness@k
+Weighted recall that favors facts appearing earlier in the response.
+
+```
+Freshness@k = Σ(weight_i × found_i) / Σ(weight_i)
+
+where weight_i = (k - position_i + 1) / k
+```
+
+---
+
+## Deliverables
+
+1. `chatbot.py` - Fixed chatbot implementation
+2. `eval/dataset.json` - Your eval test cases
+3. `eval/metrics.py` - Metric implementations
+4. `eval/run_eval.py` - Evaluation runner
+5. `RESULTS.md` - Evaluation results and analysis
+
+---
+
+## Evaluation Criteria
+
+| Category | Weight |
+|----------|--------|
+| Code quality and production readiness | 40% |
+| Eval dataset quality and coverage | 25% |
+| Metric implementation correctness | 25% |
+| Analysis and insights | 10% |
 
 ---
 
