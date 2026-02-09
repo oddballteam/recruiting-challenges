@@ -1,0 +1,114 @@
+{
+  "test_cases": [
+    {
+      "id": "shipping-001",
+      "page_context": "Wick & Glow Shipping Info: Standard shipping 5-7 business days. Express 2-3 business days. Free shipping on orders over $50.",
+      "user_question": "How long will my order take to arrive?",
+      "expected_facts": [
+        "standard shipping takes 5-7 business days",
+        "express shipping takes 2-3 business days",
+        "free shipping on orders over $50"
+      ],
+      "mock_response": "Great question! Your order delivery time depends on the shipping method you choose. With express shipping, you can expect your candles in 2-3 business days. Standard shipping typically takes 5-7 business days. And here's a tip — orders over $50 qualify for free shipping!"
+    },
+    {
+      "id": "shipping-002",
+      "page_context": "Wick & Glow Shipping Info: We ship to US and Canada. International shipping to Europe coming Q2 2025.",
+      "user_question": "Can I order from the UK?",
+      "expected_facts": [
+        "currently ships to US and Canada only",
+        "international shipping to Europe coming Q2 2025"
+      ],
+      "mock_response": "We appreciate your interest from across the pond! Unfortunately, we currently only ship to the US and Canada. However, we're expanding to Europe in Q2 2025, so you'll be able to order soon."
+    },
+    {
+      "id": "product-001",
+      "page_context": "Wick & Glow Products: 100% natural soy wax, cotton wicks, premium fragrance oils. No paraffin or synthetic additives.",
+      "user_question": "What's in your candles?",
+      "expected_facts": [
+        "100% natural soy wax",
+        "cotton wicks",
+        "premium fragrance oils",
+        "no paraffin or synthetic additives"
+      ],
+      "mock_response": "Our candles are crafted with premium fragrance oils and cotton wicks for a clean burn. We use 100% natural soy wax and never include paraffin or synthetic additives."
+    },
+    {
+      "id": "product-002",
+      "page_context": "Wick & Glow Burn Times: 8oz candle — 45-50 hours. 16oz candle — 90-100 hours. Trim wick to 1/4 inch before lighting.",
+      "user_question": "How long does the big candle last?",
+      "expected_facts": [
+        "16oz candle burns 90-100 hours",
+        "trim wick to 1/4 inch before lighting"
+      ],
+      "mock_response": "Our 16oz candle provides an impressive 90-100 hours of burn time! For the best experience, always trim the wick to 1/4 inch before each lighting."
+    },
+    {
+      "id": "product-003",
+      "page_context": "Wick & Glow Pet Safety: Soy candles are non-toxic and generally safe around pets. Keep candles out of reach. Ensure good ventilation. Essential-oil-free line available for pet owners.",
+      "user_question": "I have a cat, are these candles okay?",
+      "expected_facts": [
+        "soy candles are non-toxic and generally safe around pets",
+        "keep candles out of reach",
+        "ensure good ventilation",
+        "essential-oil-free line available for pet owners"
+      ],
+      "mock_response": "Good news for you and your cat! Our soy candles are non-toxic and generally considered safe around pets. We do recommend ensuring good ventilation in the room. Also, we have a special essential-oil-free line designed specifically for pet owners. Just make sure to keep any lit candle out of your cat's reach."
+    },
+    {
+      "id": "returns-001",
+      "page_context": "Wick & Glow Returns: 30-day satisfaction guarantee. Unused candles in original packaging — full refund. Used candles returnable within 14 days if unsatisfied with scent.",
+      "user_question": "I lit the candle and don't like the smell, can I return it?",
+      "expected_facts": [
+        "used candles can be returned within 14 days",
+        "must be unsatisfied with scent"
+      ],
+      "mock_response": "We're sorry to hear the scent wasn't for you! Yes, we accept returns on used candles within 14 days if you're unsatisfied with the fragrance. Just reach out to our support team to get the process started."
+    },
+    {
+      "id": "returns-002",
+      "page_context": "Wick & Glow Refunds: Email support@wickandglow.com with order number and reason. Refunds processed within 5-7 business days after item received.",
+      "user_question": "How do I get my money back?",
+      "expected_facts": [
+        "email support@wickandglow.com",
+        "include order number and reason",
+        "refunds processed within 5-7 business days"
+      ],
+      "mock_response": "To request a refund, email us at support@wickandglow.com with your order number and the reason for your return. Once we receive the item back, refunds are processed within 5-7 business days."
+    },
+    {
+      "id": "subscription-001",
+      "page_context": "Glow Box Subscription: Curated candle monthly for $24.99/month. Subscribers get 15% off all purchases and early access to new scents.",
+      "user_question": "Tell me about your subscription",
+      "expected_facts": [
+        "curated candle delivered monthly",
+        "$24.99 per month",
+        "15% off all other purchases",
+        "early access to new scents"
+      ],
+      "mock_response": "Our Glow Box subscription is $24.99 per month and delivers a hand-picked curated candle to your door every month. As a subscriber, you'll enjoy 15% off all other purchases in our store, plus you get early access to new scents before anyone else!"
+    },
+    {
+      "id": "subscription-002",
+      "page_context": "Cancel Glow Box: Cancel anytime from account settings. Cancellation takes effect end of current billing cycle. No cancellation fees.",
+      "user_question": "How do I cancel and will I be charged?",
+      "expected_facts": [
+        "cancel from account settings",
+        "takes effect end of billing cycle",
+        "no cancellation fees"
+      ],
+      "mock_response": "You can cancel your Glow Box subscription anytime directly from your account settings — no cancellation fees at all. Your cancellation will take effect at the end of your current billing cycle, so you'll still receive this month's candle."
+    },
+    {
+      "id": "mixed-001",
+      "page_context": "Wick & Glow FAQ: Free shipping over $50. 30-day satisfaction guarantee. All candles are 100% soy wax.",
+      "user_question": "What makes your candles worth buying?",
+      "expected_facts": [
+        "free shipping on orders over $50",
+        "30-day satisfaction guarantee",
+        "100% soy wax"
+      ],
+      "mock_response": "There's a lot to love! All our candles are made with 100% natural soy wax for a clean, long-lasting burn. We stand behind every product with a 30-day satisfaction guarantee. And if your order is over $50, shipping is completely free."
+    }
+  ]
+}

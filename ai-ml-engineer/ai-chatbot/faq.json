@@ -1,0 +1,65 @@
+{
+  "company": "Wick & Glow Candles",
+  "faq": [
+    {
+      "category": "Shipping",
+      "questions": [
+        {
+          "q": "How long does shipping take?",
+          "a": "Standard shipping takes 5-7 business days. Express shipping takes 2-3 business days. Free shipping on orders over $50."
+        },
+        {
+          "q": "Do you ship internationally?",
+          "a": "We currently ship to the US and Canada. International shipping to Europe is coming in Q2 2025."
+        },
+        {
+          "q": "How do I track my order?",
+          "a": "Once your order ships, you'll receive a tracking email with a USPS or UPS tracking number. You can also check your order status on your account page."
+        }
+      ]
+    },
+    {
+      "category": "Products",
+      "questions": [
+        {
+          "q": "What are your candles made of?",
+          "a": "All Wick & Glow candles are made from 100% natural soy wax with cotton wicks and premium fragrance oils. We never use paraffin or synthetic additives."
+        },
+        {
+          "q": "How long do your candles burn?",
+          "a": "Our 8oz candles burn for approximately 45-50 hours. Our 16oz candles burn for approximately 90-100 hours. Always trim the wick to 1/4 inch before lighting."
+        },
+        {
+          "q": "Are your candles safe for pets?",
+          "a": "Our soy candles are non-toxic and generally safe around pets. However, we recommend keeping candles out of reach and ensuring good ventilation. Our essential-oil-free line is specifically designed for pet owners."
+        }
+      ]
+    },
+    {
+      "category": "Returns & Refunds",
+      "questions": [
+        {
+          "q": "What is your return policy?",
+          "a": "We offer a 30-day satisfaction guarantee. Unused candles in original packaging can be returned for a full refund. Used candles can be returned within 14 days if you're unsatisfied with the scent."
+        },
+        {
+          "q": "How do I request a refund?",
+          "a": "Email support@wickandglow.com with your order number and reason for return. Refunds are processed within 5-7 business days after we receive the returned item."
+        }
+      ]
+    },
+    {
+      "category": "Subscriptions",
+      "questions": [
+        {
+          "q": "Do you offer a subscription service?",
+          "a": "Yes! Our Glow Box subscription delivers a curated candle each month for $24.99/month. Subscribers get 15% off all other purchases and early access to new scents."
+        },
+        {
+          "q": "How do I cancel my subscription?",
+          "a": "You can cancel your Glow Box subscription anytime from your account settings. Cancellations take effect at the end of the current billing cycle. No cancellation fees."
+        }
+      ]
+    }
+  ]
+}
