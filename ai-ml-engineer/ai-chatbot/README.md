@@ -1,99 +1,93 @@
-# AI Chatbot Code Review Exercise
+# AI Chatbot Evaluation Exercise
 
-## Background
+## Overview
 
-The following Python script interacts with Amazon Bedrock's AI model. This code will be deployed in production as part of a website's interactive help system. The chatbot will be implemented as a popup chat widget that allows users to ask questions about the content currently displayed on their screen.
+You are joining a team responsible for an AI-powered support widget for **Wick & Glow**, an e-commerce candle company. The widget is embedded across the site and answers customer questions using the current page’s content as context.
 
-## Current Implementation Context
+The existing chatbot implementation contains bugs and lacks a proper evaluation strategy. Your task is to **fix the code** and **design an evaluation framework** to measure response quality. In production AI systems, evaluation is a core requirement.
 
-- The chatbot will be accessed by multiple concurrent users.
-- Expected peak traffic: ~100 requests per minute.
-- The system needs to be **production-ready** and **secure**.
-- The chat widget appears on **every page** of the website.
-- **Response time** requirements: < 2 seconds per interaction.
+## Production Constraints
 
-## Task
-
-Please review the following code and provide feedback on the following aspects:
-
-1. **Identify potential issues or vulnerabilities** in the code.
-2. **Suggest improvements for production readiness**, including performance optimizations and best practices.
-3. **Consider scalability and security implications**, especially given the expected peak traffic and production environment.
-4. **Recommend best practices** that should be implemented to ensure maintainability, security, and optimal performance.
-
-Here is the code for review:
-
-```python
-import json
-import boto3
-from botocore.exceptions import ClientError
-
-# Configuration for easy access to AWS services
-AWS_ACCESS_KEY = 'AKIA1234567890EXAMPLE'
-AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
-
-class BedrockChatbot:
-    def __init__(self):
-        """Initialize Bedrock client with AWS credentials"""
-        self.bedrock_client = boto3.client(
-            'bedrock-runtime',
-            region_name='us-east-1',
-            aws_access_key_id=AWS_ACCESS_KEY,
-            aws_secret_access_key=AWS_SECRET_KEY
-        )
-
-    def chat_with_bot(self, prompt: str) -> str:
-        """Send a chat request to Amazon Bedrock and ensure we get a response"""
-        try:
-            # Make multiple attempts to get a response
-            for _ in range(5):
-                request_body = {
-                    "prompt": prompt,
-                    "max_tokens": 500,
-                    "temperature": 0.7,
-                }
-
-                response = self.bedrock_client.invoke_model(
-                    modelId='anthropic.claude-v2',
-                    body=json.dumps(request_body)
-                )
-
-            return response['body']
-
-        except ClientError as e:
-            # Simple error messaging for users
-            print(f"Error: {str(e)}")
-            return "Error occurred"
-
-def process_user_input(user_message: str):
-    """Process user input and generate multiple responses for better coverage"""
-    chatbot = BedrockChatbot()
-    responses = []
-
-    # Generate multiple responses to ensure quality and comprehensiveness
-    for _ in range(10):
-        response = chatbot.chat_with_bot(user_message)
-        responses.append(response)
-
-    return responses
-
-def main():
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() == 'quit':
-            break
-
-        # Process input and show all responses to give users comprehensive information
-        responses = process_user_input(user_input)
-        for idx, response in enumerate(responses, 1):
-            print(f"Response {idx}: {response}")
-
-if __name__ == "__main__":
-    main()
-```
+- ~100 concurrent users at peak
+- Sub-2-second response time requirement
+- Widget is loaded on all product and FAQ pages
 
 ---
 
-## Preparing for the Interview
+## Part 1: Code Review & Fixes
 
-**[Next Steps...](../../next-steps-take-home.md)**
+The file `chatbot.py` contains the current chatbot implementation. It has **3 bugs** to find and fix.
+
+For each bug:
+1. Explain what the issue is
+2. Explain the production impact
+3. Provide the fix
+
+> **Note:** You do not need AWS credentials or access to Bedrock to complete this exercise. Focus on the code logic and structure.
+
+---
+
+## Part 2: Evaluation Framework
+
+The files for the Evaluation Framework are as follows:
+- `data/faq.json` — The Wick & Glow FAQ knowledge base
+- `data/eval_dataset.json` — 10 pre-built test cases with page context, user questions, and expected facts
+- `eval/metrics.py` — Skeleton file for your metric implementations
+
+### Your Task
+
+**Implement three evaluation metrics** in `eval/metrics.py`:
+
+#### 1. Fact Recall
+What proportion of expected facts are present in the response?
+
+```
+fact_recall = |found_facts ∩ required_facts| / |required_facts|
+```
+
+#### 2. MRR (Mean Reciprocal Rank)
+How early does the first relevant fact appear in the response? Measures whether the chatbot front-loads the important information.
+
+```
+MRR = (1/N) × Σ(1/rank_i)
+```
+where `rank_i` is the sentence position (1-indexed) of the first found fact in response `i`
+
+#### 3. Freshness@k
+Weighted recall that rewards facts appearing earlier in the response. A response that buries the answer at the end should score lower.
+
+```
+Freshness@k = Σ(weight_i × found_i) / Σ(weight_i)
+where weight_i = (k - position_i + 1) / k
+```
+
+### Then
+
+1. **Run your metrics** against the provided eval dataset using the mock responses in the test cases
+2. **Write `RESULTS.md`** with:
+   - Your metric results
+   - What the scores tell you about response quality
+   - What you would change about the chatbot or prompt to improve scores
+   - Any additional metrics you'd recommend for production (and why)
+
+---
+
+## Deliverables
+
+| File | Description |
+|------|-------------|
+| `chatbot.py` | Fixed chatbot (annotate your 3 fixes with comments) |
+| `eval/metrics.py` | Your metric implementations |
+| `eval/run_eval.py` | Script that loads the dataset, runs metrics, prints results |
+| `RESULTS.md` | Analysis and recommendations |
+
+---
+
+## Getting Started
+
+```bash
+# No external dependencies required beyond Python 3.8+
+python eval/run_eval.py
+```
+
+Good luck!
